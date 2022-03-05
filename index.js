@@ -77,7 +77,29 @@ function gitMembers() {
             });
     }
     function addMember() {
-        
+        inquirer.prompt([
+            {
+            type: "list",
+            name: "memberChoice",
+            message: "Would you like to add another team member?",
+            choices: [
+                "Engineer",
+                "Intern",
+                "End adding members!"
+            ]    
+            }
+        ]).then(userChoice => {
+            switch (userChoice.memberChoice) {
+                case "Engineer":
+                    addEngineer();
+                    break;
+                case "Intern":
+                    addIntern();
+                    break;
+                default:
+                    generateHTML();
+            }
+        })
     }
 
 
