@@ -85,26 +85,142 @@ function gitMembers() {
             choices: [
                 "Engineer",
                 "Intern",
-                "End adding members!"
+                "Finished adding members!"
             ]    
             }
         ]).then(userChoice => {
             switch (userChoice.memberChoice) {
                 case "Engineer":
-                    addEngineer();
+                    gitEngineer();
                     break;
                 case "Intern":
-                    addIntern();
+                    gitIntern();
                     break;
                 default:
                     generateHTML();
             }
-        })
+        });
+    }
+    function gitEngineer() {
+        inquirer.prompt([
+            {
+            type: "input",
+            name: "engineerName",
+            message: "What is the engineer's name?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+                }
+                return " Please enter a valid name!"
+            }
+            },
+            {
+            type: "input",
+            name: "engineerId",
+            message: "What is the engineer's ID number?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+            }
+                return " Please enter a valid ID!"
+            }
+            },
+            {
+            type: "input",
+            name: "engineerEmail",
+            message: "What is the engineer's email address?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+            }
+                return " Please enter a valid email!"
+            }
+            },
+            {
+            type: "input",
+            name: "engineerGitHub",
+            message: "What is the engineer's GitHub username?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+            }
+                return " Please enter a valid username!"
+            }
+            }
+        ])
+        .then(answers => {
+            const engineer = new Engineer(
+                answers.engineerName,
+                answers.engineerId,
+                answers.engineerEmail,
+                answers.engineerGithub
+            );
+            teamMembers.push(engineer);
+            addMember();
+        });
     }
 
-
-
-
-
-
+    function gitIntern() {
+        inquirer.prompt([
+            {
+            type: "input",
+            name: "internName",
+            message: "What is the intern's name?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+                }
+                return " Please enter a valid name!"
+            }
+            },
+            {
+            type: "input",
+            name: "internId",
+            message: "What is the intern's ID number?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+            }
+                return " Please enter a valid ID!"
+            }
+            },
+            {
+            type: "input",
+            name: "internEmail",
+            message: "What is the intern's email address?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+            }
+                return " Please enter a valid email!"
+            }
+            },
+            {
+            type: "input",
+            name: "internSchool",
+            message: "What school did the intern attend?",
+            validate: answer => {
+                if (answer !== "") {
+                    return true;
+            }
+                return " Please enter a valid school!"
+            }
+            }
+        ])
+        .then(answers => {
+            const intern = new Intern(
+                answers.internName,
+                answers.internId,
+                answers.internEmail,
+                answers.internGithub
+            );
+            teamMembers.push(intern);
+            addMember();
+        });
+    }
+    function generateHTML(){
+        console.log("Generating Team Profile!");
+    }
+    gitManager();
 }
+gitMembers();
