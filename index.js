@@ -2,8 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const inquirer = require('inquirer');
 const jest = require('jest');
-const template = require('./src/template.js');
 
+// Locations
+const template = require('./src/template');
+const DIST_DIR = path.resolve(__dirname, 'dist');
+const output = path.join(DIST_DIR, 'index.html');
 
 // Constructors
 const Employee = require('./lib/Employee');
@@ -222,6 +225,7 @@ function gitMembers() {
     }
     function generateHTML(){
         console.log("Generating Team Profile!");
+        fs.writeFileSync(output, template(teamMembers), "utf-8");
     }
     gitManager();
 }
