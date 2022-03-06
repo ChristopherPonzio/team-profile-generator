@@ -143,7 +143,7 @@ function gitMembers() {
             },
             {
             type: "input",
-            name: "engineerGitHub",
+            name: "engineerGithub",
             message: "What is the engineer's GitHub username?",
             validate: answer => {
                 if (answer !== "") {
@@ -217,7 +217,7 @@ function gitMembers() {
                 answers.internName,
                 answers.internId,
                 answers.internEmail,
-                answers.internGithub
+                answers.internSchool,
             );
             teamMembers.push(intern);
             addMember();
