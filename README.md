@@ -1,6 +1,6 @@
 # team-profile-generator
 
-  ![Github license](https://img.shields.io/badge/license-MIT-yellowgreen.svg)
+  ![Github license](https://img.shields.io/badge/license-MIT-blue.svg)
 
   ## Video Link
   https://watch.screencastify.com/v/qKF120toxd90rH6sYeHC
