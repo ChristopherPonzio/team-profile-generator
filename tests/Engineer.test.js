@@ -7,7 +7,7 @@ describe('Engineer', () => {
         const engineer = new Engineer('Michelle');
     });
     test('set github', () => {
-        const value = GitHubAccount;
+        const value = "github";
         const engineer = new Engineer('Michelle', 1, 'michelle@email.com', value);
         expect(engineer.github).toBe(value);
     });

@@ -1,6 +1,8 @@
 const fs = require('fs');
+const path = require('path');
 const inquirer = require('inquirer');
 const jest = require('jest');
+const template = require('./src/template.js');
 
 
 // Constructors

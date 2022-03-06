@@ -7,7 +7,7 @@ test('manager office number', () => {
     expect(manager.getOfficeNumber()).toBe(value);
 });
 test('set new role', () => {
-    const value = Manager();
+    const value = "Manager";
     const manager = new Manager('Sandy', 1, "sandy@email.com", 100);
     expect(manager.getRole()).toBe(value);
 });
